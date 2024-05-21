@@ -23,17 +23,15 @@ prompt.run().then(async answer => {
     switch (answer) {
         case 'download-groups':
             const { stdout, stderr } = await execa`node ./src/download-groups.js`;
-            if(stdout) {
-                console.log(stdout);
-            }
             if(stderr) {
-                console.error(stderr);
+                throw stderr;
             }
+            console.log(stdout);
             break;
         default:
-            console.log('No script selected');
+            console.error('No script selected');
             break;
     }
-}).catch(error => {
-    console.error(`Error on running script: ${error}`);
+}).catch(e => {
+    console.error(e.message);
 });
