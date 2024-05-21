@@ -19,8 +19,13 @@ prompt.run().then(async answer => {
     const { execa } = await import('execa');
     switch (answer) {
         case 'download-groups':
-            const { stdout } = await execa`node ./src/download-groups.js`;
-            console.log(stdout);
+            const { stdout, stderr } = await execa`node ./src/download-groups.js`;
+            if(stdout) {
+                console.log(stdout);
+            }
+            if(stderr) {
+                console.error(stderr);
+            }
             break;
         default:
             console.log('No script selected');

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const createGroupFiles = (groups, path) => {
     if (fs.existsSync(path)) {
-        fs.rmdirSync(path, { recursive: true });
+        fs.rmSync(path, { recursive: true });
     }
     fs.mkdirSync(path, { recursive: true });
     groups.forEach(group => {

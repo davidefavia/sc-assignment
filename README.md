@@ -50,7 +50,9 @@ npm start
 
 A prompt asks you to choose an option between:
 
-- __Download groups__: connect to Microsoft Graph API to create groups JSON files.
+#### Download groups
+
+Connect to Microsoft Graph API to create groups JSON files inside `./output/MSGraph/Groups`.
 
 ## Test
 
@@ -61,3 +63,15 @@ npm test
 // OR
 npm test -- --coverage
 ```
+
+## Key assumptions
+
+- Script has permissions to write to local filesystem.
+- Auth token can't be reused across different runs: there isn't any storage for the auth token (no cookies, no filesystem, no database).
+- Script can login as many times as needed, without the need to throttle login attempts or to reauthenticate in the middle.
+- Auth token doesn't expire during the single run.
+
+## Limitations and know issues
+
+- I didn't have time to explore the results pagination implementation.
+- 
