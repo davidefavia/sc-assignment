@@ -1,5 +1,8 @@
 const { Select } = require('enquirer');
 
+/**
+ * Prompt user to select a script to run.
+ */
 const prompt = new Select({
     name: 'script',
     message: 'Which script do you want to run?',
