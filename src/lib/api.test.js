@@ -8,6 +8,10 @@ describe('AzureClient', () => {
         client = new AzureClient('example.com', 'appId-123', 'clientSecret-456', 'tenantId-789');
     });
 
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     describe('defaultOptions', () => {
         it('should return default options', () => {
             expect(client.accessToken).toBeUndefined();
@@ -25,6 +29,11 @@ describe('AzureClient', () => {
         it('should return access token', async () => {
             client.request = jest.fn().mockResolvedValue({ access_token: accessToken });
             const token = await client.getAccessToken();
+            expect(client.request).toHaveBeenCalledWith(expect.objectContaining({
+                hostname: 'login.microsoftonline.com',
+                path: '/tenantId-789/oauth2/v2.0/token',
+                method: 'POST',
+            }), 'grant_type=client_credentials&client_id=appId-123&client_secret=clientSecret-456&scope=https://graph.microsoft.com/.default');
             expect(token).toEqual(accessToken);
         });
     });
