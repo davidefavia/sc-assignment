@@ -1,6 +1,6 @@
 const https = require('node:https');
 
-class AzureClient {
+class ApiClient {
     constructor(baseUrl, clientId, clientSecret, tenantId) {
         this.baseUrl = baseUrl;
         this.clientId = clientId;
@@ -74,4 +74,4 @@ class AzureClient {
     };
 }
 
-module.exports = AzureClient;
+module.exports = ApiClient;

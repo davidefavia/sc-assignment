@@ -1,11 +1,11 @@
-const AzureClient = require('./api');
+const ApiClient = require('./api');
 
-describe('AzureClient', () => {
+describe('ApiClient', () => {
     let client;
     const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni';
 
     beforeEach(() => {
-        client = new AzureClient('example.com', 'appId-123', 'clientSecret-456', 'tenantId-789');
+        client = new ApiClient('example.com', 'appId-123', 'clientSecret-456', 'tenantId-789');
     });
 
     afterEach(() => {
