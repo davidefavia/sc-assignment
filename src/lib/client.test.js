@@ -15,7 +15,7 @@ describe('client', () => {
     });
 
     it('should export client', () => {
-        const { client } = require('./client');
+        const client = require('./client');
         expect(client).toBeDefined();
     });
 
@@ -25,7 +25,7 @@ describe('client', () => {
         process.env.SC_CLIENT_SECRET = 'abcdeff123456';
         process.env.SC_TENANT_ID = 'tenant-id';
 
-        const { client } = require('./client');
+        const client = require('./client');
 
         expect(client.baseUrl).toBe('example.com');
         expect(client.clientId).toBe('app-id');
@@ -34,7 +34,7 @@ describe('client', () => {
     });
 
     it('should expose methods', () => {
-        const { client } = require('./client');
+        const client = require('./client');
         expect(client.getAccessToken).toBeDefined();
         expect(client.auth).toBeDefined();
     });

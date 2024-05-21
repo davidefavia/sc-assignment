@@ -1,4 +1,4 @@
-const { client } = require('./lib/client');
+const client = require('./lib/client');
 const { createGroupFiles } = require('./lib/utils');
 const path = require('path');
 

@@ -1,4 +1,3 @@
-const { error } = require('node:console');
 const https = require('node:https');
 
 class AzureClient {
