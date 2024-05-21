@@ -74,4 +74,4 @@ npm test -- --coverage
 ## Limitations and know issues
 
 - I didn't have time to explore the results pagination implementation.
-- 
+- I tested only the files that have an explicit export, not the script that uses imports.
