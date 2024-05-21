@@ -5,7 +5,7 @@
 ### Clone git repository
 
 ```
-git clone
+git clone https://github.com/davidefavia/sc-assignment.git
 ```
 
 ### nvm
